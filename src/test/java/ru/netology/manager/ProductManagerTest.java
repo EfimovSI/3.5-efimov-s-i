@@ -56,9 +56,15 @@ class ProductManagerTest {
     }
 
     @Test
-    void shouldSearchOneByName() {
+    void shouldSearchOneBookByName() {
 
         assertArrayEquals(new Product[]{third}, manager.searchBy("Third"));
+    }
+
+    @Test
+    void shouldSearchOnePhoneByName() {
+
+        assertArrayEquals(new Product[]{sixth}, manager.searchBy("Sixth"));
     }
 
     @Test

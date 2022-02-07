@@ -25,7 +25,7 @@ public class ProductManager {
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];
         for (Product product : repository.findAll()) {
-            if (matches(product, text)) {
+            if (product.matches(text)) {
                 Product[] tmp = new Product[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);
                 tmp[tmp.length - 1] = product;
@@ -33,23 +33,5 @@ public class ProductManager {
             }
         }
         return result;
-    }
-
-    public boolean matches(Product product, String text) {
-        if (product instanceof Book) {
-            Book book = (Book) product;
-            if (book.getAuthor().contains(text)) {
-                return true;
-            }
-        }
-        if (product instanceof Smartphone) {
-            Smartphone smartphone = (Smartphone) product;
-            if (smartphone.getManufacturer().contains(text))
-                return true;
-        }
-        if (product.getName().contains(text)) {
-            return true;
-        }
-        return false;
     }
 }

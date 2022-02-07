@@ -61,9 +61,6 @@
                 </executions>
                 <configuration>
                     <excludes>
-                        <exclude>ru/netology/domain/Product.class</exclude>
-                        <exclude>ru/netology/domain/Book.class</exclude>
-                        <exclude>ru/netology/domain/Smartphone.class</exclude>
                         <exclude>lombok.config</exclude>
                     </excludes>
                     <rules>
