@@ -8,6 +8,7 @@ import ru.netology.domain.Smartphone;
 import ru.netology.repository.ProductRepository;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ProductManagerTest {
     private ProductRepository repository = new ProductRepository();
@@ -18,7 +19,7 @@ class ProductManagerTest {
     Book third = new Book(3, "Third", 30, "John");
     Book fourth = new Book(4, "Fourth", 40, "Smith");
     Smartphone fifth = new Smartphone(5, "Fifth", 50, "Pineapple");
-    Smartphone sixth = new Smartphone(5, "Sixth", 60, "Cherry");
+    Smartphone sixth = new Smartphone(6, "Sixth", 60, "Cherry");
 
     @BeforeEach
     void setUp() {
@@ -96,5 +97,20 @@ class ProductManagerTest {
         ProductManager manager1 = new ProductManager(repository1);
 
         assertArrayEquals(new Product[0], manager1.searchBy("Snow"));
+    }
+
+    @Test
+    void shouldCompareAuthor() {
+        assertTrue(fourth.matches("Smith"));
+    }
+
+    @Test
+    void shouldCompareManufacturer() {
+        assertTrue(fifth.matches("Pine"));
+    }
+
+    @Test
+    void shouldCompareName() {
+        assertTrue(sixth.matches("Six"));
     }
 }
