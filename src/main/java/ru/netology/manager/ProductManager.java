@@ -44,12 +44,8 @@ public class ProductManager {
         }
         if (product instanceof Smartphone) {
             Smartphone smartphone = (Smartphone) product;
-            if (smartphone.getManufacturer().contains(text))
-                return true;
+            if (smartphone.getManufacturer().contains(text)) return true;
         }
-        if (product.getName().contains(text)) {
-            return true;
-        }
-        return false;
+        return product.getName().contains(text);
     }
 }

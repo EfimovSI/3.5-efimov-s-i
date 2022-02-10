@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Data
-@EqualsAndHashCode (callSuper = true)
-public class Book extends Product{
+@EqualsAndHashCode(callSuper = true)
+public class Book extends Product {
     private String author;
 
     public Book(int id, String name, long price, String author) {

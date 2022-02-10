@@ -10,8 +10,8 @@ import ru.netology.repository.ProductRepository;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class ProductManagerTest {
-    private ProductRepository repository = new ProductRepository();
-    private ProductManager manager = new ProductManager(repository);
+    private final ProductRepository repository = new ProductRepository();
+    private final ProductManager manager = new ProductManager(repository);
 
     Product first = new Product(1, "First", 10);
     Product second = new Product(2, "Second", 20);
@@ -84,6 +84,7 @@ class ProductManagerTest {
 
         assertArrayEquals(new Product[0], manager.searchBy("Snow"));
     }
+
     @Test
     void shouldNotFindInEmpty() {
         ProductRepository repository1 = new ProductRepository();
